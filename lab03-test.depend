@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1586615463 source:c:\users\hp\desktop\labs\lab03\histogram.cpp
+1586617766 source:c:\users\hp\desktop\labs\lab03\histogram.cpp
 	"histogram.h"
 
-1586611419 c:\users\hp\desktop\labs\lab03\histogram.h
+1586617774 c:\users\hp\desktop\labs\lab03\histogram.h
 	<vector>
 	<iostream>
 
