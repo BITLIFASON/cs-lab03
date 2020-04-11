@@ -1,3 +1,4 @@
+
 #include "histogram.h"
 
 #include <cassert>
@@ -41,4 +42,8 @@ assert(max == 0);
 int main()
 {
     test_positive();
+    test_negative();
+    test_const();
+    test_one();
+    test_empty();
 }
