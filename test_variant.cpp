@@ -3,15 +3,15 @@
 
 #include <cassert>
 
-void test(size_t font_size)
+void test()
 {
     assert(check_size(3) == false );
     assert(check_size(33) == false );
-    assert(check_size(23) == true );
+    assert(check_size(8) == true );
+    assert(check_size(32) == true );
+    assert(check_size(16) == true );
 }
 int main()
 {
-    size_t font_size;
-    cin >> font_size;
-    check_size(font_size);
+    test();
 }

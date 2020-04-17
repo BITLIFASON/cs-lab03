@@ -21,7 +21,7 @@ int main() {
     cerr << "Enter column count: ";
     cin >> bin_count;
     size_t font_size;
-    bool wrong_size = false;
+    bool wrong_size;
     while (!wrong_size)
     {
         cerr << "Enter font size: ";

@@ -98,7 +98,7 @@ void svg_text(double left, double baseline, string text, string font_size)
 
 void svg_rect(double x, double y, double width, double height, string stroke, string fill)
 {
-cout<< "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='red' fill='blue'/>";
+    cout<< "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='red' fill='blue'/>";
 }
 
 void show_histogram_svg(const vector<size_t>& bins, size_t font_size)
@@ -126,7 +126,7 @@ bool check_size(size_t font_size)
 {
     if(font_size < 8 || font_size > 32)
     {
-        cout << "Invalid input, font_size => 8 and =< 32 !" << endl;
+        cerr << "Invalid input, font_size => 8 and =< 32 !" << endl;
         return false;
     }
     else return true;
