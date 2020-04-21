@@ -22,7 +22,7 @@ void svg_text(double left, double baseline, string text, string font_size)
 
 void svg_rect(double x, double y, double width, double height, string stroke, string fill)
 {
-    cout<< "<rect x='" << x << "' y='" << y << "' width='" << width << "' height='" << height << "' stroke='red' fill='blue'/>";
+    cout << "<rect x='"<< x << "' y='" << y <<"' width='" << width <<"' height='" << height <<"' stroke='"<< stroke <<"' fill='"<< fill <<"'/>";
 }
 
 void show_histogram_svg(const vector<size_t>& bins, size_t font_size)
