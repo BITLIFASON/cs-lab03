@@ -18,7 +18,6 @@ void svg_end()
 void svg_text(double left, double baseline, string text)
 {
     cout << "<text x='" << left << "' y='" << baseline << "'>"<< text<< "</text>";
-    //cout << "<text x='" << left << "' y='" << baseline<<"'>"<<text<<"</text>";
 }
 
 void svg_rect(double x, double y, double width, double height, string stroke, string fill)
@@ -54,7 +53,7 @@ void show_histogram_svg(const vector<size_t>& bins)
     if (scaling_needed)
         {
             const double scaling_factor = (double)MAX_ASTERISK / max_count;
-            double lenght_rect = bin * scaling_factor;  //òàê êàê height = (size_t)(bin * scaling_factor) ðàáîòàåò íå ïðàâèëüíî
+            double lenght_rect = bin * scaling_factor;
             height = (size_t)(lenght_rect);
         }
     const double bin_width = BLOCK_WIDTH * height;
