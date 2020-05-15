@@ -1,5 +1,6 @@
 /bin
 /obj
+/curl
 lab03.depend
 lab03.layout
 lab03-test.depend
