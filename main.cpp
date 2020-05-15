@@ -1,6 +1,12 @@
 #include "histogram.h"
 #include "svg.h"
 
+struct Input
+{
+    vector<double> numbers;
+    size_t bin_count;
+};
+
 vector<double> input_numbers(istream& in, size_t count)
 {
     vector <double> result(count);
@@ -8,20 +14,29 @@ vector<double> input_numbers(istream& in, size_t count)
     {
         in >> result[i];
     }
-
     return result;
 }
 
-int main() {
-    size_t number_count;
+Input read_input(istream& in) {
+    Input data;
+
     cerr << "Enter number count: ";
+    size_t number_count;
     cin >> number_count;
+
     cerr << "Enter numbers: ";
-    const auto numbers = input_numbers(cin, number_count);
-    size_t bin_count;
+    data.numbers = input_numbers(in, number_count);
+
     cerr << "Enter column count: ";
+    size_t bin_count;
     cin >> bin_count;
-    const auto bins = make_histogram(numbers, bin_count);
+    data.bin_count = bin_count;
+    return data;
+}
+
+int main() {
+    const auto data = read_input(cin);
+    const auto bins = make_histogram(data.numbers,data.bin_count);
     show_histogram_svg(bins);
     return 0;
 }
