@@ -1,4 +1,5 @@
 #include "histogram.h"
+#include "svg.h"
 
 vector<double> input_numbers(size_t count)
 {
@@ -11,7 +12,7 @@ vector<double> input_numbers(size_t count)
 }
 
 int main() {
-    // Ввод данных
+    // Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
@@ -20,7 +21,7 @@ int main() {
     size_t bin_count;
     cerr << "Enter column count: ";
     cin >> bin_count;
-    const auto bins = make_histogram(numbers, bin_count);    // Обработка данных
-    show_histogram_svg(bins);  // Вывод данных
+    const auto bins = make_histogram(numbers, bin_count);    // ГЋГЎГ°Г ГЎГ®ГІГЄГ  Г¤Г Г­Г­Г»Гµ
+    show_histogram_svg(bins);  // Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ
     return 0;
 }
