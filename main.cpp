@@ -72,7 +72,15 @@ int main(int argc, char* argv[]) {
     else {
             data = read_input(cin, true);
     }
+    size_t font_size;
+    bool wrong_size;
+    while (!wrong_size)
+    {
+        cout << "Enter font size: ";
+        cin >> font_size; cout << endl;
+        wrong_size = check_size(font_size);
+    }
     const auto bins = make_histogram(data);
-    show_histogram_svg(bins);
+    show_histogram_svg(bins,font_size);
     return 0;
 }
