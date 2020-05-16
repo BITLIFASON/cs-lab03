@@ -47,13 +47,14 @@ Input download(const string& address) {
     curl_global_init(CURL_GLOBAL_ALL);
        CURL* curl = curl_easy_init();
        if(curl) {
+        char *ip;
         CURLcode res;
         curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
         res = curl_easy_perform(curl);
-        if (res != 0)
-            {
+            if((res == CURLE_OK) && !curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &ip) && ip) cerr << "IP:" << ip << endl;
+            else {
                 cout << curl_easy_strerror(res) << endl;
                 exit(1);
             }
