@@ -12,11 +12,7 @@ vector<double> input_numbers(size_t count)
 }
 
 int main() {
-    const char* name = "Commander Shepard";
-    int year = 2154;
-    printf("%s was born in %d.\n", name, year);
-    printf("n = %08x\n", 0x1234567);
-    return 0;
+    // Ââîä äàííûõ
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
@@ -25,6 +21,7 @@ int main() {
     size_t bin_count;
     cerr << "Enter column count: ";
     cin >> bin_count;
-    const auto bins = make_histogram(numbers, bin_count);
-    show_histogram_svg(bins);
+    const auto bins = make_histogram(numbers, bin_count);    // Îáðàáîòêà äàííûõ
+    show_histogram_svg(bins);  // Âûâîä äàííûõ
+    return 0;
 }
