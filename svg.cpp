@@ -25,9 +25,9 @@ void svg_rect(double x, double y, double width, double height, string stroke, st
     cout << "<rect x='"<< x << "' y='" << y <<"' width='" << width <<"' height='" << height <<"' stroke='"<< stroke <<"' fill='"<< fill <<"'/>";
 }
 
-void show_histogram_svg(const vector<size_t>& bins, size_t font_size)
+void show_histogram_svg(const vector<size_t>& bins, string info ,size_t font_size)
 {
-    const auto IMAGE_WIDTH = 400;
+    const auto IMAGE_WIDTH = 500;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;
@@ -60,9 +60,11 @@ void show_histogram_svg(const vector<size_t>& bins, size_t font_size)
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin),to_string(font_size));
     svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT,"red", "#ffeeee");
     top += BIN_HEIGHT;
+    svg_text(TEXT_LEFT, top + TEXT_BASELINE, info);
 }
     svg_end();
 }
+
 
 bool check_size(size_t font_size)
 {

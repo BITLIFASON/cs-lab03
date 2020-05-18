@@ -1,8 +1,6 @@
 #include "histogram.h"
 #include "svg.h"
 #include <curl/curl.h>
-#include <sstream>
-#include <string>
 
 vector<double> input_numbers(istream& in, size_t count)
 {
@@ -26,10 +24,39 @@ Input read_input(istream& in, bool prompt) {
 
     if(prompt) cerr << "Enter column count: ";
     size_t bin_count;
+
     in >> bin_count;
     data.bin_count = bin_count;
 
     return data;
+    }
+
+string make_info_text()
+{
+    stringstream buffer;
+    DWORD info = GetVersion();
+    DWORD mask = 0x0000ffff;
+    DWORD build;
+    DWORD platform = info >> 16;
+    DWORD version = info & mask;
+    DWORD version_major = version & 0xff;
+    DWORD version_minor = version >> 8;
+    //printf("M_version10 = %lu\n",version_major);
+    //printf("M_version16 = %08lx\n",version_major);
+    //printf("m_version10 = %lu\n",version_minor);
+    //printf("m_version16 = %08lx\n",version_minor);
+    if ((info & 0x80000000) == 0)
+    {
+    build = platform;
+    }
+    else printf("minor_bit = %u",1);
+    //printf("Windows v%lu.%lu (build %lu)\n",version_major,version_minor,build);
+    char system_name[MAX_COMPUTERNAME_LENGTH + 1];
+    DWORD Size = sizeof(system_name);
+    GetComputerNameA(system_name, &Size);
+    //printf("System name: %s\n", system_name);
+    buffer << "Windows v" << version_major << "." << version_minor << " (build " << build << ")" << " " << "Computer name: " << system_name;
+    return buffer.str();
 }
 
 size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx)
@@ -64,6 +91,7 @@ Input download(const string& address) {
 }
 
 int main(int argc, char* argv[]) {
+    string info = make_info_text();
     Input data;
     if(argc > 1)
     {
@@ -76,11 +104,11 @@ int main(int argc, char* argv[]) {
     bool wrong_size;
     while (!wrong_size)
     {
-        cout << "Enter font size: ";
-        cin >> font_size; cout << endl;
+        cerr << "Enter font size: ";
+        cin >> font_size;
         wrong_size = check_size(font_size);
     }
     const auto bins = make_histogram(data);
-    show_histogram_svg(bins,font_size);
+    show_histogram_svg(bins, info, font_size);
     return 0;
 }

@@ -3,6 +3,10 @@
 
 #include <vector>
 #include <iostream>
+#include <winsock2.h>
+#include <windows.h>
+#include <string>
+#include <sstream>
 using namespace std;
 
 struct Input
