@@ -60,8 +60,8 @@ void show_histogram_svg(const vector<size_t>& bins, string info ,size_t font_siz
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin),to_string(font_size));
     svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT,"red", "#ffeeee");
     top += BIN_HEIGHT;
-    svg_text(TEXT_LEFT, top + TEXT_BASELINE, info);
 }
+    svg_text(TEXT_LEFT, top + TEXT_BASELINE, info);
     svg_end();
 }
 
